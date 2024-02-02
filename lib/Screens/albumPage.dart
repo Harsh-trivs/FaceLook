@@ -5,17 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class AlbumPage extends StatefulWidget {
-  const AlbumPage({super.key});
-
+  AlbumPage({super.key, this.id});
+  int? id;
   @override
   State<AlbumPage> createState() => _AlbumPageState();
 }
 
 class _AlbumPageState extends State<AlbumPage> {
-  List<dynamic> albumList = [];
+  List<dynamic>? albumList;
   getAlbumData() {
     http
-        .get(Uri.parse("https://jsonplaceholder.typicode.com/albums"))
+        .get(Uri.parse(
+            "https://jsonplaceholder.typicode.com/albums${widget.id != null ? "?userId=${widget.id}" : ""}"))
         .then((value) => jsonDecode(value.body))
         .then((value) => setState(() {
               albumList = value;
@@ -31,14 +32,18 @@ class _AlbumPageState extends State<AlbumPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: albumList.length,
-      itemBuilder: (context, index) {
-        return AlbumCard(
-            userId: albumList[index]['userId'],
-            id: albumList[index]['id'],
-            title: albumList[index]['title']);
-      },
-    );
+    return albumList != null
+        ? ListView.builder(
+            shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
+            itemCount: albumList!.length,
+            itemBuilder: (context, index) {
+              return AlbumCard(
+                  userId: albumList![index]['userId'],
+                  id: albumList![index]['id'],
+                  title: albumList![index]['title']);
+            },
+          )
+        : Center(child: CircularProgressIndicator());
   }
 }

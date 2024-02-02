@@ -34,21 +34,19 @@ class _CommentPageState extends State<CommentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        children: [
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: commentList.length,
-            itemBuilder: (context, index) {
-              return Expanded(
-                child: commentCard(
-                    name: commentList[index]["name"],
-                    email: commentList[index]["email"],
-                    body: commentList[index]["body"]),
-              );
-            },
-          ),
-        ],
+      body: ListView.builder(
+        physics: ClampingScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: commentList.length,
+        itemBuilder: (context, index) {
+          return Container(
+            height: 350,
+            child: CommentCard(
+                name: commentList[index]["name"],
+                email: commentList[index]["email"],
+                body: commentList[index]["body"]),
+          );
+        },
       ),
     );
   }

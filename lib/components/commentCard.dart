@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class commentCard extends StatefulWidget {
-  const commentCard({
+class CommentCard extends StatefulWidget {
+  const CommentCard({
     super.key,
     required this.name,
     required this.email,
@@ -15,14 +15,13 @@ class commentCard extends StatefulWidget {
   final String body;
 
   @override
-  State<commentCard> createState() => _commentCardState();
+  State<CommentCard> createState() => _CommentCardState();
 }
 
-class _commentCardState extends State<commentCard> {
+class _CommentCardState extends State<CommentCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.maxFinite,
       margin: EdgeInsets.all(20),
       decoration: BoxDecoration(
           color: Theme.of(context).cardTheme.color,
@@ -74,7 +73,7 @@ class _commentCardState extends State<commentCard> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(onPressed: () {}, icon: Icon(Icons.message)),
+                  Container(),
                   Container(
                     margin: EdgeInsets.all(10),
                     child: Text(

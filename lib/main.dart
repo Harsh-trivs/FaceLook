@@ -1,6 +1,7 @@
 import 'package:demo/Screens/albumPage.dart';
 import 'package:demo/Screens/connectPage.dart';
 import 'package:demo/Screens/postPage.dart';
+import 'package:demo/Screens/profilePage.dart';
 import 'package:demo/components/albumCard.dart';
 import 'package:flutter/material.dart';
 
@@ -53,9 +54,28 @@ class _HomeState extends State<Home> {
           ]),
       body: pageList[index],
       appBar: AppBar(
-        title: Text(
-          "FaceLook",
-          style: TextStyle(fontWeight: FontWeight.w800),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "FaceLook",
+              style: TextStyle(fontWeight: FontWeight.w800),
+            ),
+            InkWell(
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ProfilePage(userId: 1))),
+              child: CircleAvatar(
+                // You can use a user's profile picture here
+                radius: 20,
+                backgroundColor: Colors.grey,
+                child: Icon(
+                  Icons.person,
+                  size: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
