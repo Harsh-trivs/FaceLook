@@ -15,7 +15,7 @@ class AlbumCard extends StatefulWidget {
 }
 
 class _AlbumCardState extends State<AlbumCard> {
-  String albumImageUrl = "";
+  String? albumImageUrl;
   String postTitle = "";
   String createdBy = "";
   String placeholderUrl = "";
@@ -100,14 +100,23 @@ class _AlbumCardState extends State<AlbumCard> {
             ),
 
             //photo
-            Container(
-              width: 300,
-              height: 300,
-              margin: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage(albumImageUrl)),
-                  borderRadius: BorderRadius.circular(20)),
-            ),
+            albumImageUrl != null
+                ? Container(
+                    width: 300,
+                    height: 300,
+                    margin: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(albumImageUrl!)),
+                        borderRadius: BorderRadius.circular(20)),
+                  )
+                : Container(
+                    width: 300,
+                    height: 300,
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
 
             Container(
               child: Row(
