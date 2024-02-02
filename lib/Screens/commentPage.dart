@@ -33,7 +33,12 @@ class _CommentPageState extends State<CommentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          "Comments",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
       body: ListView.builder(
         physics: ClampingScrollPhysics(),
         shrinkWrap: true,

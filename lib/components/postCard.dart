@@ -92,13 +92,16 @@ class _PostCardState extends State<PostCard> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                CommentPage(postId: widget.postId)));
-                      },
-                      icon: Icon(Icons.message)),
+                  Container(
+                    margin: EdgeInsets.only(left: 10),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  CommentPage(postId: widget.postId)));
+                        },
+                        icon: Icon(Icons.message)),
+                  ),
                   Container(
                     margin: EdgeInsets.all(10),
                     child: Text(
