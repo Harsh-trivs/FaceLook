@@ -1,16 +1,24 @@
-# demo
+# FaceLook - Your Flutter Social Media App
 
-A new Flutter project.
+FaceLook is a Flutter-based social media application for connecting with friends and sharing moments.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+These instructions will help you install and run the FaceLook application on your local machine or device.
 
-A few resources to get you started if this is your first Flutter project:
+### Prerequisites
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) installed on your machine.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Installing
+
+1. Clone the FaceLook repository to your local machine:
+   ```bash
+   git clone https://github.com/your-username/FaceLook.git
+   cd FaceLook
+2. Getting Dependencies:
+   ```bash
+   flutter pub get
+3. Clone the FaceLook repository to your local machine:
+   ```bash
+   flutter run
